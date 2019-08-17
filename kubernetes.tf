@@ -1,24 +1,4 @@
 
-resource "aws_autoscaling_attachment" "bastions-kubernetes-zhazgul-com" {
-  elb                    = "${aws_elb.bastion-kubernetes-zhazgul-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.bastions-kubernetes-zhazgul-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-eu-west-2a-masters-kubernetes-zhazgul-com" {
-  elb                    = "${aws_elb.api-kubernetes-zhazgul-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-eu-west-2a-masters-kubernetes-zhazgul-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-eu-west-2b-masters-kubernetes-zhazgul-com" {
-  elb                    = "${aws_elb.api-kubernetes-zhazgul-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-eu-west-2b-masters-kubernetes-zhazgul-com.id}"
-}
-
-resource "aws_autoscaling_attachment" "master-eu-west-2c-masters-kubernetes-zhazgul-com" {
-  elb                    = "${aws_elb.api-kubernetes-zhazgul-com.id}"
-  autoscaling_group_name = "${aws_autoscaling_group.master-eu-west-2c-masters-kubernetes-zhazgul-com.id}"
-}
-
 resource "aws_autoscaling_group" "bastions-kubernetes-zhazgul-com" {
   name                 = "bastions.kubernetes-zhazgul.com"
   launch_configuration = "${aws_launch_configuration.bastions-kubernetes-zhazgul-com.id}"
@@ -1056,6 +1036,3 @@ resource "aws_vpc_dhcp_options_association" "kubernetes-zhazgul-com" {
   dhcp_options_id = "${aws_vpc_dhcp_options.kubernetes-zhazgul-com.id}"
 }
 
-terraform = {
-  required_version = ">= 0.9.3"
-}
