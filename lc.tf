@@ -24,7 +24,7 @@ resource "aws_launch_configuration" "bastions-kubernetes-zhazgul-com" {
 resource "aws_launch_configuration" "master-eu-west-2a-masters-kubernetes-zhazgul-com" {
   name_prefix                 = "master-eu-west-2a.masters.kubernetes-zhazgul.com-"
   image_id                    = "ami-00d3181bc89480a82"
-  instance_type               = "m4.large"
+  instance_type               = "${var.master_instance_type}"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-zhazgul-com-25a71ebf0bc5fe878f802b99169138ea.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetes-zhazgul-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetes-zhazgul-com.id}"]
@@ -47,7 +47,7 @@ resource "aws_launch_configuration" "master-eu-west-2a-masters-kubernetes-zhazgu
 resource "aws_launch_configuration" "master-eu-west-2b-masters-kubernetes-zhazgul-com" {
   name_prefix                 = "master-eu-west-2b.masters.kubernetes-zhazgul.com-"
   image_id                    = "ami-00d3181bc89480a82"
-  instance_type               = "m4.large"
+  instance_type               = "${var.master_instance_type}"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-zhazgul-com-25a71ebf0bc5fe878f802b99169138ea.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetes-zhazgul-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetes-zhazgul-com.id}"]
@@ -70,7 +70,7 @@ resource "aws_launch_configuration" "master-eu-west-2b-masters-kubernetes-zhazgu
 resource "aws_launch_configuration" "master-eu-west-2c-masters-kubernetes-zhazgul-com" {
   name_prefix                 = "master-eu-west-2c.masters.kubernetes-zhazgul.com-"
   image_id                    = "ami-00d3181bc89480a82"
-  instance_type               = "m4.large"
+  instance_type               = "${var.master_instance_type}"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-zhazgul-com-25a71ebf0bc5fe878f802b99169138ea.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.masters-kubernetes-zhazgul-com.id}"
   security_groups             = ["${aws_security_group.masters-kubernetes-zhazgul-com.id}"]
@@ -93,7 +93,7 @@ resource "aws_launch_configuration" "master-eu-west-2c-masters-kubernetes-zhazgu
 resource "aws_launch_configuration" "nodes-kubernetes-zhazgul-com" {
   name_prefix                 = "nodes.kubernetes-zhazgul.com-"
   image_id                    = "ami-00d3181bc89480a82"
-  instance_type               = "m4.large"
+  instance_type               = "${var.node_instance_type}"
   key_name                    = "${aws_key_pair.kubernetes-kubernetes-zhazgul-com-25a71ebf0bc5fe878f802b99169138ea.id}"
   iam_instance_profile        = "${aws_iam_instance_profile.nodes-kubernetes-zhazgul-com.id}"
   security_groups             = ["${aws_security_group.nodes-kubernetes-zhazgul-com.id}"]
